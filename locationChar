@@ -1,0 +1,46 @@
+//****************************************************************************
+// Program: locationChar.cpp
+// Author: you and Dr. Turner
+//
+// This program is a short demo program that determines whether a character
+// is in a C string.
+//****************************************************************************
+#include <iostream>
+#include <iomanip>
+using namespace std;
+//********************************************************
+// Recursive version of charLocation. You will:
+// a) fix this recursive version and demonstrate.
+// b) convert this recursive version to being iterative.
+//********************************************************
+int charLocation (char *s, char s, int i){
+bool found = false;
+int posn = -1;
+int n = strlen(s);
+
+
+
+
+int charLocation(char *s, char a, int i) {
+if (s[i] == '\0')
+return -1;
+return charLocation(s,a,i+1);
+}
+int main(int argc, char *argv[]) {
+if (argc != 3) {
+cout << "Usage: " << argv[0] << " string character" << endl;
+exit(0);
+}
+char finder = argv[2][0];
+cout << endl;
+cout << "Looking for character '" << finder << "' in string \"" << argv[1] <<
+"\"" << endl;
+int loc = charLocation(argv[1], finder, 0);
+if (loc == -1)
+cout << "I did not find '" << finder << "' inside the string \"" << argv[1] <<
+"\"" << endl;
+else
+cout << "The character '" << finder << "' is first located in the string \"" <<
+argv[1] << "\"" << " at location " << loc << endl;
+return 0;
+}
